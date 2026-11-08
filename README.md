@@ -17,8 +17,9 @@ away, right where the notch already is.
 ![macOS 14+](https://img.shields.io/badge/macOS-14%2B-black)
 ![Apple silicon and Intel](https://img.shields.io/badge/Apple%20silicon%20%2B%20Intel-universal-black)
 ![License: MIT](https://img.shields.io/badge/license-MIT-black)
+[![CI](https://github.com/manugowda19/noth/actions/workflows/ci.yml/badge.svg)](https://github.com/manugowda19/noth/actions/workflows/ci.yml)
 
-<img src="docs/images/home.png" alt="The NØTH Command Center open under the notch, showing today's date, quick notes and a focus timer">
+<img src="docs/images/demo.gif" alt="NØTH's Command Center under the notch, switching between the Home, Shelf, Media, Time and Tools tabs">
 
 </div>
 
@@ -121,6 +122,10 @@ open Noth.app
 | `./build.sh` | Release build, universal (Apple silicon + Intel) |
 | `Scripts/run_tests.sh` | Runs the model tests |
 | `Scripts/make_dmg.sh` | Builds `Noth-<version>.dmg` |
+
+Every push and pull request is built and tested on GitHub Actions. Pushing a
+tag like `v3.2.0` (matching `CFBundleShortVersionString`) builds the universal
+DMG and publishes it as a release.
 
 More in [BUILD.md](BUILD.md); how it fits together in
 [ARCHITECTURE.md](ARCHITECTURE.md).

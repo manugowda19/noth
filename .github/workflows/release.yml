@@ -1,0 +1,56 @@
+name: Release
+
+# Push a tag like v3.2.0 to build the universal DMG and publish a release.
+# Run it by hand (Actions › Release › Run workflow) to build the DMG as a
+# downloadable artifact without publishing anything.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dmg:
+    if: github.repository == 'manugowda19/noth'
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tag matches app version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          version=$(plutil -extract CFBundleShortVersionString raw Resources/Info.plist)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Info.plist says $version but the tag is $GITHUB_REF_NAME"
+            exit 1
+          fi
+
+      - name: Model tests
+        run: Scripts/run_tests.sh
+
+      - name: Build DMG
+        run: Scripts/make_dmg.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dmg
+          path: Noth-*.dmg
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          dmg=$(ls Noth-*.dmg)
+          sha=$(shasum -a 256 "$dmg" | cut -d' ' -f1)
+          cat > notes.md <<NOTES
+          ## Install
+          1. Download **$dmg** below and drag **Noth** to Applications.
+          2. First launch: **right-click Noth › Open › Open** (the app isn't notarized yet).
+
+          Requires macOS 14 or later. **SHA-256** \`$sha\`
+          NOTES
+          gh release create "$GITHUB_REF_NAME" "$dmg" \
+            --title "NØTH ${GITHUB_REF_NAME#v}" --notes-file notes.md --generate-notes --latest
