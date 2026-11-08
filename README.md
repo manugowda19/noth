@@ -144,6 +144,8 @@ More in [BUILD.md](BUILD.md); how it fits together in
 Bug reports, ideas and pull requests are welcome — see
 [CONTRIBUTING.md](CONTRIBUTING.md).
 
+If NØTH earns a spot on your Mac, a ⭐ on GitHub helps other people find it.
+
 ## Credits
 
 - [mediaremote-adapter](https://github.com/ungive/mediaremote-adapter)
