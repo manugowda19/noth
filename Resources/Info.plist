@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>NØTH</string>
+    <key>CFBundleDisplayName</key>
+    <string>NØTH</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.notchflow.app</string>
+    <key>CFBundleVersion</key>
+    <string>3.1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>3.1.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleExecutable</key>
+    <string>NotchFlow</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon.icns</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>NØTH shows today's events in the shelf's calendar tab.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>NØTH shows today's events in the shelf's calendar tab.</string>
+    <key>NSRemindersFullAccessUsageDescription</key>
+    <string>NØTH shows and completes your reminders in the shelf.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>NØTH shows and controls Music/Spotify playback from the notch.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>NØTH shows local weather in the shelf.</string>
+    <key>NSDownloadsFolderUsageDescription</key>
+    <string>NØTH shows download progress in the notch.</string>
+    <key>NSAudioCaptureUsageDescription</key>
+    <string>NØTH listens to playback audio to animate the visualizer bars. Audio is analyzed in memory and never saved.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>NØTH takes a photo from the notch and drops it on the shelf.</string>
+</dict>
+</plist>

@@ -1,0 +1,14 @@
+# Swift / SPM build output
+.build/
+.swiftpm/
+*.o
+*.swiftmodule
+
+# Assembled app bundle (produced by build.sh)
+Noth.app/
+NotchFlow.app/
+
+# macOS
+.DS_Store
+# Packaged DMGs (produced by Scripts/make_dmg.sh)
+*.dmg
